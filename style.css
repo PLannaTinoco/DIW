@@ -1,0 +1,118 @@
+
+
+/* Cabeçalho do site */
+header {
+    height: 120px;
+    background-color: cadetblue;
+}
+
+.menu-principal {
+    float: right
+}
+
+.menu-principal > ul > li { 
+    display: inline-block;
+    padding: 8px;
+}
+
+.menu-principal > ul > li:hover {
+    background-color: cornflowerblue
+}
+
+/* barra de pesquisa */
+
+
+
+/* Corpo do index */
+
+
+.card-img-top {
+    width: 200px;
+    height: 150px;
+    
+    float: left;
+}
+
+.card{
+    width: 220px;
+    height: 350px;
+    
+    float: left;
+    
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+.card-body{
+    padding: 10px;
+}
+
+/* Corpo do sobreItens */
+.titulo{
+    padding: 0 5px;
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+.nome-produto{
+    padding: 5px 5px;
+    width: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+.avaliacao{
+    padding: 0 5px;
+    float: right;
+    width: auto;
+    height: 24px;
+    margin: 0 auto;
+}
+.tipo de produto{
+    padding: 0 5px;
+    float: left;
+    width: auto;
+    height: 24px;
+    margin: 0 auto;
+}
+
+.bnt-comprar{
+    padding: 5px 5px;
+    float: right;
+    width: auto;
+    height: 24px;
+    
+}
+.valor{
+    padding: 0 5px;
+    float: left;
+    width: auto;
+    height: 24px;
+    margin: 0 auto;
+}
+.box-detalhes {
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-detalhe-item {
+    max-width: 20%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+    
+
+
+
+/* Rodapé do site */
+
+footer {
+    clear: both;
+    height: 80px;
+    background-color: cadetblue
+}

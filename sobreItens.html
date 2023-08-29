@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="db.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <div class="menu-principal">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>FakeStore</li>
+                <li><a href="sobreItens.html">Produtos</a></li>
+                <li>Serviços</li>
+                <li>Blog</li>
+                <li>Contato</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row" id="tela">
+                <div class="box-detalhes">
+                    <h1 class="titulo">Detalhes Produto</h1>
+                    <img src="" alt="" class="img-detalhe-item">
+                    <h5 class="nome-produto">Camisa jeans</h5>
+                    <p class="avaliacao">Avaliação: 3.5/5 </p>
+                    <p class="tipo-produto">Categoria: tshirt </p>
+                    <br>
+                    <p class="descricao-produto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
+                        recusandae ipsa perspiciatis doloribus commodi odit sed distinctio mollitia deleniti error.</p>
+                    <p class="valor">Valor: R$27.99</p> <button class="comprar-item"><a
+                            href="index.html">Comprar</a></button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+    <footer>Copyright Pedro Tinoco Lanna / Curso: Ciencia da computção / Matricula: 803103</footer>
+
+    <script>
+        fetch('https://fakestoreapi.com/products?limit=20')
+            .then(res => res.json())
+            .then(data => {
+                
+                var idValor = localStorage.getItem('idValue');
+                
+                
+                let i = (idValor - 1);
+                let str = ''
+                str = `<div class="container-fluid">
+            <div class="row" id="tela">
+                <div class="box-detalhes">
+                    <h1 class="titulo">Detalhes Produto</h1>
+                    <img class="img-detalhe-item" src="${data[i].image}" alt="" >
+                    <h5 class="nome-produto">${data[i].title}</h5>
+                    <p class="avaliacao">Avaliação: ${data[i].rating.rate}/5 </p>
+                    <p class="tipo-produto">Categoria: ${data[i].category} </p>
+                    <br>
+                    <p class="descricao-produto">${data[i].description}</p>
+                    <p class="valor">Valor: R$${data[i].price}</p> <button class="comprar-item"><a href="index.html">Comprar</a></button>
+                </div>
+            </div>
+         </div>`
+                document.getElementById('tela').innerHTML = str
+            }
+            )
+            
+    </script>
+
+</body>
+
+</html>

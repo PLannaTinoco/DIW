@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="db.js"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="menu-principal">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>FakeStore/li>
+                <li><a href="sobreItens.html">Produtos</a></li>
+                <li>Serviços</li>
+                <li>Blog</li>
+                <li>Contato</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+
+       
+
+        <h1>Produtos</h1>
+        <div id="lista-produtos">
+
+        </div>
+
+    </main>
+
+
+
+
+
+    <footer>Copyright Pedro Tinoco Lanna / Curso: Ciencia da computção / Matricula: 803103</footer>
+
+    <script>
+       
+       // criar os card de produtos - inicio
+       var prods = '';
+        for (i = 0; i < db.dados.length; i++) {
+            prods += `<div id="lista-produtos">
+            <div class="card" id = "meuElemento" >
+                <img class="card-img-top" src="${db.dados[i].image}"  alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${db.dados[i].title}</h5>
+                  <p class="card-text">${db.dados[i].category}</p>
+                  <p class="card-text">Valor:R$${db.dados[i].price}</p>
+                  <button class="meuBotao" data-id="${db.dados[i].id}">
+                  Ver Mais
+                  </button>
+                  
+
+                </div>
+              </div>`;
+
+        }
+        document.getElementById('lista-produtos').innerHTML = prods;
+        // criar os card de produtos - fim
+
+
+        
+        // Obter todos os botões com a classe "meuBotao"
+        var botoes = document.querySelectorAll('.meuBotao');
+
+        // Função para lidar com o clique do botão
+        function handleClick(event) {
+            // Obter o valor da data-id do botão clicado
+            var idValor = event.target.getAttribute('data-id');
+
+            // Armazenar o valor do ID na LocalStorage
+            localStorage.setItem('idValue', idValor);
+            window.location.href = 'sobreItens.html'
+        }
+
+        // Adicionar um ouvinte de eventos de clique a cada botão
+        botoes.forEach(function (botao) {
+            botao.addEventListener('click', handleClick);
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>
